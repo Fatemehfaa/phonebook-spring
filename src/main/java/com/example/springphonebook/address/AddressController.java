@@ -10,8 +10,8 @@ import java.util.List;
 @RestController
 @RequestMapping("/address")
 public class AddressController {
-    private AddressService addressService;
-    @Autowired
+    private final AddressService addressService;
+
     public AddressController(AddressService addressService) {
         this.addressService = addressService;
     }

@@ -1,18 +1,24 @@
 package com.example.springphonebook.address;
 
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
+import lombok.experimental.FieldDefaults;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.logging.Level;
 
 @Service
-public class AddressServiceImpl implements AddressService{
-    private AddressRepository addressRepository;
-    @Autowired
+public class AddressServiceImpl implements AddressService {
+    private final AddressRepository addressRepository;
+
     public AddressServiceImpl(AddressRepository addressRepository) {
         this.addressRepository = addressRepository;
     }
+
 
     @Override
     public void CreateAddress(AddressEntity address) {
@@ -23,7 +29,7 @@ public class AddressServiceImpl implements AddressService{
     @Override
     public AddressEntity LoadAddressEntityByID(Long id) {
         Optional<AddressEntity> byId = addressRepository.findById(id);
-        if(byId.isPresent())
+        if (byId.isPresent())
             return byId.get();
         else
             return null;
@@ -33,7 +39,7 @@ public class AddressServiceImpl implements AddressService{
     @Override
     public List<AddressEntity> getAllAddress() {
         List<AddressEntity> all = addressRepository.findAll();
-        if (all==null)
+        if (all == null)
             throw new RuntimeException("Can not find Address.");
         else
             return all;

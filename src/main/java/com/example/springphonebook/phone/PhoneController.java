@@ -34,10 +34,20 @@ public class PhoneController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/first" , method = RequestMethod.GET)
-    public String showhello(){
-        return "<h2>Hello</h2>";
+    @GetMapping("/getPhoneByPhoneNumber/{phoneNumber}")
+    public ResponseEntity<PhoneEntity> getPhoneByPhoneNumber(@PathVariable String phoneNumber){
+        PhoneEntity phoneByPhoneNumber = phoneService.getPhoneByPhoneNumber(phoneNumber);
+        return new ResponseEntity<>(phoneByPhoneNumber , HttpStatus.OK);
+
     }
+
+
+    @RequestMapping(value = "/first" , method = RequestMethod.GET)
+    public List<String> showhello(){
+        return List.of("<h2>Hello</h2> , JSonForm");
+    }
+
+
 
 
 

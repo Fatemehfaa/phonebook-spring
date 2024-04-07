@@ -10,7 +10,7 @@ import java.util.Optional;
 
 @Service
 
-public class phoneServiceImpl implements PhoneService{
+public class phoneServiceImpl implements PhoneService {
     private PhoneRepository phoneRepository;
     @Autowired
     public phoneServiceImpl(PhoneRepository phoneRepository) {
@@ -45,5 +45,13 @@ public class phoneServiceImpl implements PhoneService{
             throw new RuntimeException("phone not found.");
         else
             return all;
+    }
+
+    @Override
+    public PhoneEntity getPhoneByPhoneNumber(String phoneNumber) {
+        PhoneEntity byPhoneNumber = phoneRepository.findByPhoneNumber(phoneNumber);
+        if(byPhoneNumber==null)
+            throw new RuntimeException("phoneNumber not found.");
+        return byPhoneNumber;
     }
 }

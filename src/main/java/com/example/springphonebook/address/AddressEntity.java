@@ -16,7 +16,7 @@ import lombok.Setter;
 @NoArgsConstructor
 public class AddressEntity extends BaseEntity<Long> {
     private String street;
-    private String CityName;
+    private String cityName;
     private int plaque;
 
 }

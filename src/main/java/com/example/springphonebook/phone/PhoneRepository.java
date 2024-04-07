@@ -11,4 +11,6 @@ public interface PhoneRepository extends JpaRepository<PhoneEntity,Long> {
     PhoneEntity findPhoneEntityById(@Param("id")Long phoneId);
 
     PhoneEntity findByPhoneType(String phoneType);
+    PhoneEntity findByPhoneNumber(String phoneNumber);
+
 }
