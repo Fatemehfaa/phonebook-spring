@@ -30,7 +30,8 @@ public class AddressController {
 
     @GetMapping("/getAllAddress/")
     public ResponseEntity <List<AddressEntity>> getAllAddress(){
-        return new ResponseEntity<>(HttpStatus.OK);
+        List<AddressEntity> allAddress = addressService.getAllAddress();
+        return new ResponseEntity<>(allAddress,HttpStatus.OK);
     }
 
     @GetMapping("/getAddressByCityname/{cityname}")

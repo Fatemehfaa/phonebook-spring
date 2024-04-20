@@ -54,4 +54,13 @@ public class PersonServiceImpl implements PersonService{
             throw new RuntimeException("firstname not found.");
         return personEntityByFirstname;
     }
+
+    @Override
+    public List<PersonEntity> showPerson() {
+        return List.of(new PersonEntity(
+                "fatemeh",
+                "fathalian",
+                "0024444444"));
+
+    }
 }

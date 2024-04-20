@@ -5,10 +5,12 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
+import java.time.Month;
 import java.util.List;
 
 @RestController
-@RequestMapping("/phone")
+@RequestMapping(path = "/phone")
 public class PhoneController {
    private PhoneService phoneService;
     @Autowired
@@ -31,7 +33,7 @@ public class PhoneController {
     @GetMapping("/getAllPhone/")
     public ResponseEntity<List<PhoneEntity>> getAllPhone(){
         List<PhoneEntity> allPhone = phoneService.getAllPhone();
-        return new ResponseEntity<>(HttpStatus.OK);
+        return new ResponseEntity<>(allPhone,HttpStatus.OK);
     }
 
     @GetMapping("/getPhoneByPhoneNumber/{phoneNumber}")
@@ -45,6 +47,13 @@ public class PhoneController {
     @RequestMapping(value = "/first" , method = RequestMethod.GET)
     public List<String> showhello(){
         return List.of("<h2>Hello</h2> , JSonForm");
+    }
+
+    @GetMapping("/showPhone")
+    public ResponseEntity<List<PhoneEntity>> showPhone(){
+        List<PhoneEntity> phoneEntities = phoneService.showPhone();
+        return new ResponseEntity<>(phoneEntities,HttpStatus.OK);
+
     }
 
 

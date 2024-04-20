@@ -1,9 +1,7 @@
 package com.example.springphonebook.address;
 
 import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.PersistenceContext;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -17,8 +15,12 @@ public class AddressDao {
                 .setParameter(1, "addressId")
                 .getResultList();
         return result;
-
     }
+
+//    public AddressDao findById(Long id){
+//        return entityManager.find(AddressDao.class,id);
+//    }
+
 
 
 }

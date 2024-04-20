@@ -11,5 +11,6 @@ public interface PersonService {
     public PersonEntity getPersonByNationalCode(String nationalCode);
 
     public List<PersonEntity> getPersonByFirstName(String firstName);
+    public List<PersonEntity> showPerson();
 
 }

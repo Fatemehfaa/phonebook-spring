@@ -30,7 +30,8 @@ public class PersonController {
 
     @GetMapping("/getAll")
     public ResponseEntity<List<PersonEntity>> getAll(){
-        return new ResponseEntity<>(HttpStatus.OK);
+        List<PersonEntity> all = personService.getAll();
+        return new ResponseEntity<>(all,HttpStatus.OK);
     }
 
     @GetMapping("/getPersonByNationalCode/{nationalCode}")
@@ -39,11 +40,21 @@ public class PersonController {
         return new ResponseEntity<>(personByNationalCode,HttpStatus.OK);
     }
 
-    @GetMapping("/getPersonByFirstname/{firstname}")
+ /*   @GetMapping("/getPersonByFirstname/{firstname}")
     public ResponseEntity<PersonEntity> getPersonByFirstname(@PathVariable String firstname){
-        //List<PersonEntity> personByFirstName = personService.getPersonByFirstName(firstname);
-        return new ResponseEntity<>(HttpStatus.OK);
+        List<PersonEntity> personByFirstName = personService.getPersonByFirstName(firstname);
+        return new ResponseEntity<>(personByFirstName,HttpStatus.OK);
+    }*/
+
+
+    @GetMapping("/showPerson")
+    public ResponseEntity<List<PersonEntity>> showPerson(){
+        List<PersonEntity> personEntities = personService.showPerson();
+        return new ResponseEntity<>(personEntities,HttpStatus.OK);
     }
+
+
+
 
 
 }

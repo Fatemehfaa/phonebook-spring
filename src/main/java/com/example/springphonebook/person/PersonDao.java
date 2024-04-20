@@ -13,6 +13,7 @@ public class PersonDao {
     private EntityManager entityManager;
 
 
+
     public List<PersonEntity> test(Long id){
         List<PersonEntity> result =  entityManager.createQuery("select per from PersonEntity per where per.id =: personId", PersonEntity.class )
                 .setParameter("personId" , id)

@@ -8,4 +8,6 @@ public interface PhoneService {
     public PhoneEntity getPhoneById(Long id);
     public List<PhoneEntity> getAllPhone();
     public PhoneEntity getPhoneByPhoneNumber(String phoneNumber);
+    List<PhoneEntity> showPhone();
+
 }
