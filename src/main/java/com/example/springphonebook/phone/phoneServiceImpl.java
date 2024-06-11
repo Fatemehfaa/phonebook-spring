@@ -2,20 +2,20 @@ package com.example.springphonebook.phone;
 
 import com.example.springphonebook.Validation;
 import com.example.springphonebook.person.PersonEntity;
+import lombok.AccessLevel;
+import lombok.RequiredArgsConstructor;
+import lombok.experimental.FieldDefaults;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
+@RequiredArgsConstructor
+@FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 
 public class phoneServiceImpl implements PhoneService {
-    private final PhoneRepository phoneRepository;
-
-    public phoneServiceImpl(PhoneRepository phoneRepository) {
-        this.phoneRepository = phoneRepository;
-    }
-
+    PhoneRepository phoneRepository;
 
     @Override
     public void createPhone(PhoneEntity phone) {

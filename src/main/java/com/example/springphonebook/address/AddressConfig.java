@@ -14,13 +14,17 @@ import java.util.List;
 public class AddressConfig {
 
     @Bean
-    CommandLineRunner commandLineRunner(AddressRepository addressRepository){
+    CommandLineRunner addressSampleData(AddressRepository addressRepository){
         return args -> {
             AddressEntity mirdamad = new AddressEntity(
                     "mirdamad",
                     "tehran",
                     367,
-                    new PersonEntity()
+                    PersonEntity.builder()
+                            .firstname("amir")
+                            .surname("amiri")
+                            .nationalCode("123")
+                            .build()
 
                     );
 

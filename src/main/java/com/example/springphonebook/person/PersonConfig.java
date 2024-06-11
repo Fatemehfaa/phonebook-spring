@@ -10,7 +10,7 @@ import java.util.List;
 public class PersonConfig {
 
     @Bean
-    CommandLineRunner commandLineRunner(PersonRepository personRepository){
+    CommandLineRunner personSimpleData(PersonRepository personRepository){
         return args ->{
             PersonEntity fatemeh = new PersonEntity(
                     "fatemeh",
@@ -25,7 +25,6 @@ public class PersonConfig {
             );
 
             personRepository.saveAll (List.of (fatemeh,sanaz));
-
         };
     }
 }

@@ -12,13 +12,10 @@ import java.util.Optional;
 import java.util.logging.Level;
 
 @Service
+@RequiredArgsConstructor
+@FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 public class AddressServiceImpl implements AddressService {
-    private final AddressRepository addressRepository;
-
-    public AddressServiceImpl(AddressRepository addressRepository) {
-        this.addressRepository = addressRepository;
-    }
-
+    AddressRepository addressRepository;
 
     @Override
     public void CreateAddress(AddressEntity address) {
@@ -29,17 +26,14 @@ public class AddressServiceImpl implements AddressService {
     @Override
     public AddressEntity LoadAddressEntityByID(Long id) {
         Optional<AddressEntity> byId = addressRepository.findById(id);
-        if (byId.isPresent())
-            return byId.get();
-        else
-            return null;
+        return byId.orElse(null);
         // return addressRepository.findById(id).get();
     }
 
     @Override
     public List<AddressEntity> getAllAddress() {
         List<AddressEntity> all = addressRepository.findAll();
-        if (all == null)
+        if (all.isEmpty())
             throw new RuntimeException("Can not find Address.");
         else
             return all;

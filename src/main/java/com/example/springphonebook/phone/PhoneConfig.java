@@ -12,7 +12,7 @@ public class PhoneConfig {
     private String password;
 
     @Bean
-    CommandLineRunner commandLineRunner(PhoneRepository phoneRepository ){
+    CommandLineRunner phoneSampleData(PhoneRepository phoneRepository ){
         return args -> {
             PhoneEntity phoneNumberType=new PhoneEntity(
             "09373886674",
@@ -20,7 +20,6 @@ public class PhoneConfig {
                     );
 
             phoneRepository.save(phoneNumberType);
-
         };
 
     }

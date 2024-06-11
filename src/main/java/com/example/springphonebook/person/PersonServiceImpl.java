@@ -1,18 +1,20 @@
 package com.example.springphonebook.person;
 
 import com.example.springphonebook.Validation;
+import lombok.AccessLevel;
+import lombok.RequiredArgsConstructor;
+import lombok.experimental.FieldDefaults;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
+@FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
+
 public class PersonServiceImpl implements PersonService{
-    private PersonRepository personRepository;
-    @Autowired
-    public PersonServiceImpl(PersonRepository personRepository) {
-        this.personRepository = personRepository;
-    }
+     PersonRepository personRepository;
 
     @Override
     public void savePerson(PersonEntity person) {
