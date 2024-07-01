@@ -10,8 +10,8 @@ import java.util.List;
 public class PersonConfig {
 
     @Bean
-    CommandLineRunner personSimpleData(PersonRepository personRepository){
-        return args ->{
+    CommandLineRunner personSimpleData(PersonRepository personRepository) {
+        return args -> {
             PersonEntity fatemeh = new PersonEntity(
                     "fatemeh",
                     "fathalian",
@@ -24,7 +24,8 @@ public class PersonConfig {
                     "001111111111"
             );
 
-            personRepository.saveAll (List.of (fatemeh,sanaz));
+            personRepository.saveAll(List.of(fatemeh, sanaz));
+
         };
     }
 }

@@ -12,7 +12,8 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDateTime;
+
 
 @Getter
 @Setter
@@ -20,15 +21,14 @@ import java.util.Date;
 @NoArgsConstructor
 @SuperBuilder
 @MappedSuperclass
-public abstract class BaseEntity<T extends Serializable>{
+public abstract class BaseEntity<T extends Serializable> {
     @Id
     @GeneratedValue
     protected T id;
 
-    @CreationTimestamp
-    protected Date createDate;
-
     @UpdateTimestamp
-    protected Date updateDate;
+    protected LocalDateTime updatedAt;
+    @CreationTimestamp
+    protected LocalDateTime createdAt;
 
 }
