@@ -44,7 +44,6 @@ public class PhoneController {
     }
 
 
-    @RequestMapping(value = "/first" , method = RequestMethod.GET)
     public List<String> showhello(){
         return List.of("<h2>Hello</h2> , JSonForm");
     }
